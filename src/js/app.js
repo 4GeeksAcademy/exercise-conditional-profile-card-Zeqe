@@ -23,8 +23,8 @@ import "../style/index.css";
     }
  */
 function render(variables = {}) {
-  console.log("These are the current variables: ", variables); 
-  
+  console.log("These are the current variables: ", variables);
+
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
   const name = variables.name == null ? "Nombre" : variables.name;
@@ -60,7 +60,8 @@ window.onload = function() {
     // this is the image's url that will be used as a background for the profile cover
     background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://avatars.githubusercontent.com/u/85196913?s=400&u=b64ddbcfe1ad11c05333517ba846f315811fe5b5&v=4",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
@@ -74,11 +75,11 @@ window.onload = function() {
     country: null,
     city: null
   };
-  render(window.variables); 
+  render(window.variables);
 
   document.querySelectorAll(".picker").forEach(function(elm) {
     elm.addEventListener("change", function(e) {
-      const attribute = e.target.getAttribute("for"); 
+      const attribute = e.target.getAttribute("for");
       let values = {};
       values[attribute] =
         this.value == "" || this.value == "null"
@@ -88,7 +89,7 @@ window.onload = function() {
           : this.value == "false"
           ? false
           : this.value;
-      render(Object.assign(window.variables, values)); 
+      render(Object.assign(window.variables, values));
     });
   });
 };
